@@ -1,0 +1,80 @@
+{
+  "name": "deez-literal",
+  "version": "0.0.1",
+  "description": "Template Tag allowing for a MultiDimensional string literal. Allows passing in arrays to a template and returning an array of strings of all possible combinations.",
+  "private": true,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint --fix ./src; prettier --write ./src --log-level error",
+    "lint:check": "eslint --max-warnings 10 ./src && prettier --check ./src",
+    "prebuild": "rm -rf dist",
+    "prepare": "husky install",
+    "size": "node scripts/esbuild.js",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "4.2.0",
+    "@types/node": "20.4.5",
+    "@typescript-eslint/eslint-plugin": "6.2.0",
+    "@typescript-eslint/parser": "6.2.0",
+    "@vitest/coverage-c8": "0.33.0",
+    "esbuild": "0.18.17",
+    "eslint": "8.45.0",
+    "eslint-plugin-filename-export": "1.0.4",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.3",
+    "prettier": "3.0.0",
+    "typescript": "5.1.6",
+    "vite": "4.4.7",
+    "vite-plugin-dts": "3.3.1",
+    "vite-tsconfig-paths": "4.2.0",
+    "vitest": "0.33.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "bracketSameLine": true,
+    "plugins": [
+      "@trivago/prettier-plugin-sort-imports"
+    ],
+    "importOrder": [
+      "node:.*",
+      "@/lib(.*)$",
+      "@/utils(.*)$",
+      "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "pnpm": {
+    "overrides": {
+      "typescript@<5.1.6": "^5.1.6",
+      "semver@>=6.0.0 <6.3.1": ">=6.3.1",
+      "semver@>=7.0.0 <7.5.2": ">=7.5.2"
+    }
+  }
+}
