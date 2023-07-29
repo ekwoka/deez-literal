@@ -30,7 +30,12 @@
     "size": "node scripts/esbuild.js",
     "test": "vitest"
   },
-  "keywords": ["tagged template", "Iterator", "MultiDimensional", "deez"],
+  "keywords": [
+    "tagged template",
+    "Iterator",
+    "MultiDimensional",
+    "deez"
+  ],
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/node": "20.4.5",
@@ -43,6 +48,7 @@
     "husky": "8.0.3",
     "lint-staged": "13.2.3",
     "prettier": "3.0.0",
+    "pretty-bytes": "^6.1.1",
     "typescript": "5.1.6",
     "vite": "4.4.7",
     "vite-plugin-dts": "3.3.1",
