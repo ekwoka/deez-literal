@@ -18,11 +18,9 @@ const greetings = subjects.map(subject => `Hello ${subject}!`)
 // Now 🔥
 const greetings = deez`Hello ${subjects}!`
 
-
 // Both return
 ['Hello world!', 'Hello mom!']
 ```
-
 
 ## Exports
 
@@ -32,19 +30,18 @@ The main template tag. Takes in a template tag, and returns an array of strings 
 
 ```js
 // simple
-const subjects = ['world', 'mom']
-deez`Hello ${subjects}!` // ['Hello world!', 'Hello mom!']
+const subjects = ['world', 'mom'];
+deez`Hello ${subjects}!`; // ['Hello world!', 'Hello mom!']
 
 // complex
-const greetingWords = ['Hello', 'Hi']
-deez`${greetingWords} ${subjects}!`
+const greetingWords = ['Hello', 'Hi'];
+deez`${greetingWords} ${subjects}!`;
 // ['Hello world!', 'Hello mom!', 'Hi world!', 'Hi mom!']
 
 // can still accept plain values
-const user = 'Mom'
-deez`${greetingWords} ${user}! Here's a joke: ${jokes}`
+const user = 'Mom';
+deez`${greetingWords} ${user}! Here's a joke: ${jokes}`;
 // ['Hello mom! Here's a joke: ...', 'Hi mom! Here's a joke: ...', ...]
-
 ```
 
 When values aren't arrays, they are treated like single value arrays, making using this similarly to a normal template literal very simple!
@@ -56,15 +53,12 @@ When values aren't arrays, they are treated like single value arrays, making usi
 Internal iterator used for making the messages. Can be directly used to get the iterator that you can stream through to other things only as needed.
 
 ```js
-const iter = deezIter`Hello ${subjects}!`
-iter.next() // 'Hello world!'
-iter.next() // 'Hello mom!'
-
+const iter = deezIter`Hello ${subjects}!`;
+iter.next(); // 'Hello world!'
+iter.next(); // 'Hello mom!'
 
 // or
-
-for (const greeting of deezIter`Hello ${subjects}!`)
-	greeting // 'Hello world!' | 'Hello mom!'
+for (const greeting of deezIter`Hello ${subjects}!`) greeting; // 'Hello world!' | 'Hello mom!'
 ```
 
 ### `arrangeDimensions`
@@ -74,9 +68,9 @@ Signature: `(first: Iterable<T>, others: Iterable<T>[]) => Generator<T[]>`
 Even MORE internal iterator for figuring out all the combinations of the passed in expressions need. Really just exposed because, sure, maybe someone will find it useful;
 
 ```js
-const iter = arrangeDimensions(['Hello', 'Hi'], [['World', 'Mom']])
-iter.next() // ['Hello', 'World']
-iter.next() // ['Hello', 'Mom']
-iter.next() // ['Hi', 'World']
-iter.next() // ['Hi', 'Mom']
+const iter = arrangeDimensions(['Hello', 'Hi'], [['World', 'Mom']]);
+iter.next(); // ['Hello', 'World']
+iter.next(); // ['Hello', 'Mom']
+iter.next(); // ['Hi', 'World']
+iter.next(); // ['Hi', 'Mom']
 ```
