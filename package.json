@@ -2,7 +2,12 @@
   "name": "deez-literal",
   "version": "0.0.1",
   "description": "Template Tag allowing for a MultiDimensional string literal. Allows passing in arrays to a template and returning an array of strings of all possible combinations.",
-  "private": true,
+  "author": {
+    "name": "Eric Kwoka",
+    "email": "eric@thekwoka.com",
+    "url": "https://thekwoka.net/"
+  },
+  "license": "MIT",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -25,9 +30,7 @@
     "size": "node scripts/esbuild.js",
     "test": "vitest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["tagged template", "Iterator", "MultiDimensional", "deez"],
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/node": "20.4.5",
